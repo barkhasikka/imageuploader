@@ -25,6 +25,7 @@ Get metadata for image with id `<id>`.
 
 `GET /v1/images/<id>/data` 
 
+
 Get image data for image with id `<id>`.
 
 Optional GET parameter: `?bbox=<x>,<y>,<w>,<h>` to get a cutout of the image.
@@ -48,3 +49,11 @@ Image metadata should be the following fields:
 * Extra fields of your choice
 
 It is up to you how you want to represent the image metadata in your API.
+
+Some notes about the assignment:
+
+To test update:
+curl -X PUT -F 'file=@/path/to/image/file' localhost:8089/v1/images/:id -H "Content-Type: multipart/form-data"
+
+In ideal scenarios we should convert all the images into one of png/ jpg to make code cleaner and handling of images much easier.
+Many tools like ffmpeg can be a good choice to convert every image to certain types depending on the requirement of course.
